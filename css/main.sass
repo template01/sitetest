@@ -1,0 +1,664 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+
+/* ==========================================================================
+ * Base styles: opinionated defaults
+ * ==========================================================================
+
+html
+  color: #222
+  font-size: 1em
+  line-height: 1.4
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+
+\::-moz-selection, ::selection
+  background: #b3d4fc
+  text-shadow: none
+
+/*
+ * A better looking default horizontal rule
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+
+audio, canvas, iframe, img, svg, video
+  vertical-align: middle
+
+/*
+ * Remove default fieldset styles.
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+/*
+ * Allow only vertical resizing of textareas.
+
+textarea
+  resize: vertical
+
+/* ==========================================================================
+ * Browser Upgrade Prompt
+ * ==========================================================================
+
+.browserupgrade
+  margin: 0.2em 0
+  background: #ccc
+  color: #000
+  padding: 0.2em 0
+
+/* ==========================================================================
+ * Author's custom styles
+ * ==========================================================================
+
+$mainColor : #eee
+
+$mainFont : 'Anonymous Pro', monospace;
+$mainFontSize: 24px;
+$mainFontWeight: normal;
+
+$break-small: 320px;
+$break-mid: 1200px;
+$break-large: 1800px;
+
+
+
+html
+  position: relative
+  height: 100%
+
+body
+  position: relative
+  height: 100%
+  background: #eee
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+  font-size: 14px
+  color: #000
+  margin: 0
+  padding: 0
+  // margin: 180px
+
+.swiper-container
+  width: 100%
+  /*height: 100%;
+  // height: calc(100vw/2)
+  // height: 50vw
+  // @media screen and (max-width: $break-small)
+  //   height: 70vw
+  // @media screen and (max-width: $break-mid)
+  //   height: 50vw
+  // @media screen and (min-width: $break-large)
+  //   height: 40vw
+
+
+.swiper-slide
+  text-align: center
+  font-size: 18px
+  /*background: #fff;
+  background: $mainColor
+  /* Center slide text vertically
+  display: -webkit-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  -webkit-justify-content: center
+  justify-content: center
+  -webkit-box-align: center
+  -ms-flex-align: center
+  -webkit-align-items: center
+  align-items: center
+  > img
+    width: 100%
+  .caption
+    display: none
+  cursor: pointer
+  &.swiper-slide-active
+    box-shadow: 1px 0px 0px $mainColor, -2px 0px 0px $mainColor, 0px -2px 0px $mainColor,0px 2px 0px $mainColor
+
+.displayNone
+  display: none
+
+
+.swiper-button-prev, .swiper-button-next
+  /*top:
+  position: absolute !important
+  margin-top: 0px !important
+  height: 100% !important
+  top:0 !important
+  width:15% !important
+  background-image: none !important
+  /*top:110%;
+
+.swiper-button-prev
+  left:0px !important
+  cursor: w-resize !important
+
+.swiper-button-next
+  right: 0px !important
+  cursor: e-resize !important
+
+
+
+.nav-wrapper
+  position: relative
+  font-size: 24px
+  display: inline-block
+  width: 100%
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+
+.nav-helper
+  margin-right: 10px
+
+
+.nav-next
+  position: absolute
+  right: 0
+  cursor: pointer
+  &:after
+    content: "→";
+  &.nav-open
+    &:after
+      content: "↑";
+
+.nav-next.swiper-button-disabled
+  visibility: hidden
+  &.nav-open
+    visibility: visible
+.nav-prev
+  position: absolute
+  left: 0
+  cursor: pointer
+  &:after
+    content: "←";
+
+.nav-prev.swiper-button-disabled
+    &:after
+      content: "●";
+      animation: blink-animation 2s steps(5, start) infinite;
+      -webkit-animation: blink-animation 2s steps(5, start) infinite;
+
+@keyframes blink-animation
+  to
+    visibility: hidden;
+
+@-webkit-keyframes blink-animation
+  to
+    visibility: hidden;
+
+.nav-wrapper .nav-caption
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+  margin-left: 80px
+  float: left
+  &:hover
+    cursor: pointer
+    border-bottom: 2px solid black
+    margin-bottom: -2px
+
+.col1
+  margin-left: 5%
+  margin-right: 5%
+  width: 90%
+  @media screen and (max-width: $break-small)
+    margin-left: 2%
+    margin-right: 2%
+    width: 96%
+  @media screen and (min-width: $break-mid)
+    margin-left: 10%
+    margin-right: 10%
+    width: 80%
+
+// .row:not(:first-of-type)
+//     padding-top: 1000px
+
+.row
+  display: inline-block
+  .col1
+    margin-left: 0%
+    margin-right: 0%
+    width: 100%
+    display: inline-block
+  .col2
+    margin-left: 0%
+    margin-right: 0%
+    width: 50%
+    float: left
+    display: inline-block
+    background: $mainColor
+    img
+      max-width: 45%
+      padding: 2.5%
+      float: left;
+      height: auto
+
+
+.row-full:first-of-type
+    // background: red !important;
+    padding-top: 60px
+
+
+.row-full
+  width: 100%
+  clear: both;
+  background: $mainColor
+  // display: inline-block
+
+.fixedBehind
+  position: fixed
+  width: inherit
+  box-sizing: border-box
+  z-index: -1
+  // background: red
+  background: $mainColor
+  padding-bottom: 20px;
+  // padding-top: 40px;
+
+
+.fixedFront
+  position: fixed
+  width: inherit
+  box-sizing: border-box
+  z-index: 998
+  background: $mainColor
+
+.mainMenu
+  box-shadow: 2px 0px 0px $mainColor, -2px 0px 0px $mainColor
+
+.row
+  h1
+    & + *
+      // padding-top: 40px
+
+
+h1
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+  text-align: justify
+  line-height: 5px
+  padding-top: 10px
+  &.menuItemHidden
+    display: none
+  &.collapsedMenu
+    &:after
+      content: ""
+      display: inline-block
+      width: 100%
+    // text-align-last:center !important
+    text-align: center
+    float:left !important
+    // padding-right: 20px
+    letter-spacing: -3px
+    width: 25%;
+    // text-align: center
+    &:last-of-type
+      // text-align-last: right !important'
+    &.menuItemHidden
+      display: block
+  &:after
+    content: ""
+    display: inline-block
+    width: 100%
+    line-height: 0px
+
+
+h2
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+
+p
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+
+
+li
+  font-family: $mainFont
+  font-weight: $mainFontWeight
+  font-size: $mainFontSize
+
+*[data-load-work]:not(.ignoreColor)
+  color: red
+  cursor: pointer
+
+*[data-load-visual]:not(.ignoreColor)
+  color: green
+  cursor: pointer
+
+// PROJECT PAGE
+//
+
+.visualSlide
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: $mainColor
+  z-index: 999
+  box-shadow: -2px 0px 0px black
+  .visualItem
+    float: left
+    // margin: 56px
+    margin-top: 56px
+    margin-left: 56px
+
+    // width: calc(60vh - 112px)
+    // height: calc(40vh - 112px)
+    // width: calc(60vh - 56px)
+    // height: calc(40vh - 56px)
+
+    background: beige
+    background: no-repeat center center
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+
+
+  .postHeaderWrapper
+    z-index: 999
+    position: fixed
+    top: 0
+    width: inherit
+    h1[data-unload-visual]
+      cursor: pointer
+      float: left
+      background-color: inherit
+      position: absolute
+    h1.postHeader
+      margin-left: 40px
+  .postContent
+    margin: 0px !important
+    height: calc(100vh)
+    visibility: hidden
+
+
+.grid2x3
+  width: calc(60vh - 56px)
+  height: calc(40vh - 56px)
+.grid3x2
+  height: calc(60vh - 56px)
+  width: calc(40vh - 56px)
+.grid2x2
+  height: calc(40vh - 56px)
+  width: calc(40vh - 56px)
+.grid2x1
+  height: calc(20vh - 56px)
+  width: calc(40vh - 56px)
+
+// .grid2x3
+//   width: calc(60vh - 112px)
+//   height: calc(40vh - 112px)
+// .grid3x2
+//   height: calc(60vh - 112px)
+//   width: calc(40vh - 112px)
+// .grid2x2
+//   height: calc(40vh - 112px)
+//   width: calc(40vh - 112px)
+// .grid2x1
+//   height: calc(20vh - 112px)
+//   width: calc(40vh - 112px)
+
+.workSlide
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: $mainColor
+  z-index: 999
+  overflow-y: auto
+  overflow-x: hidden
+  // border-left: 2px solid black
+  box-shadow: -2px 0px 0px black
+  .postHeaderWrapper
+    // background: red
+    position: fixed
+    top: 0
+    width: inherit
+    // margin-bottom: 40px;
+    h1[data-unload-work]
+      cursor: pointer
+      float: left
+      background-color: inherit
+      position: absolute
+    h1.postHeader
+      margin-left: 40px
+  .postContent
+    .lazyload
+      height: 1000px
+    .lazyloading
+      opacity: 0
+      min-height: 200px
+    .lazyloaded
+      opacity: 1
+      transition: opacity 1000ms
+    img
+      max-width: 100%
+      height: 100%
+  // .workSlideInner
+
+
+
+#partSplash,#partProjects,#partContact,#partStudio
+  visibility: hidden;
+  // max-height: 0px
+  // overflow: hidden
+  // -moz-transition: 2s;
+  // -ms-transition: 2s;
+  // -o-transition: 2s;
+  // -webkit-transition: 2s cubic-bezier(0.65, 0.1, 0.28, 0.54);
+  // transition: 2s cubic-bezier(0.65, 0.1, 0.28, 0.54);
+
+.partVisible
+  visibility: visible !important;
+
+.animateHeight
+  // max-height: 2000px !important;
+
+
+// CLOSE BUTTON
+
+.close-button
+  height: 20px
+  width: 20px
+  position: relative
+  box-sizing: border-box
+  line-height: 20px
+  display: inline-block
+  &:before
+    transform: rotate(-45deg)
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: 2px
+    margin-left: -10px
+    display: block
+    height: 2px
+    width: 20px
+    background-color: black
+    transition: all 0.25s ease-out
+  &:after
+    transform: rotate(-45deg)
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: 2px
+    margin-left: -10px
+    display: block
+    height: 2px
+    width: 20px
+    background-color: black
+    transition: all 0.25s ease-out
+    transform: rotate(-135deg)
+  &:hover
+    &:before, &:after
+      transform: rotate(0deg)
+
+/* ==========================================================================
+ * Helper classes
+ * ==========================================================================
+
+/*
+ * Hide visually and from screen readers
+
+
+.noOverflow
+  overflow: hidden
+
+
+.hidden
+  display: none !important
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  &.focusable
+    &:active, &:focus
+      clip: auto
+      height: auto
+      margin: 0
+      overflow: visible
+      position: static
+      width: auto
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+
+.invisible
+  visibility: hidden
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+
+.clearfix
+  &:before
+    content: " "
+    /* 1
+    display: table
+    /* 2
+  &:after
+    content: " "
+    /* 1
+    display: table
+    /* 2
+    clear: both
+
+/* ==========================================================================
+ * EXAMPLE Media Queries for Responsive Design.
+ * These examples override the primary ('mobile first') styles.
+ * Modify as content requires.
+ * ==========================================================================
+
+@media only screen and (min-width: 35em)
+  /* Style adjustments for viewports that meet the condition
+
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi)
+  /* Style adjustments for high resolution devices
+
+/* ==========================================================================
+ * Print styles.
+ * Inlined to avoid the additional HTTP request:
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * ==========================================================================
+
+@media print
+  *
+    background: transparent !important
+    color: #000 !important
+    /* Black prints faster:
+     * http://www.sanbeiji.com/archives/953
+    box-shadow: none !important
+    text-shadow: none !important
+    &:before, &:after, &:first-letter, &:first-line
+      background: transparent !important
+      color: #000 !important
+      /* Black prints faster:
+       * http://www.sanbeiji.com/archives/953
+      box-shadow: none !important
+      text-shadow: none !important
+  a
+    text-decoration: underline
+    &:visited
+      text-decoration: underline
+    &[href]:after
+      content: " (" attr(href) ")"
+  abbr[title]:after
+    content: " (" attr(title) ")"
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+  a
+    &[href^="#"]:after, &[href^="javascript:"]:after
+      content: ""
+  pre, blockquote
+    border: 1px solid #999
+    page-break-inside: avoid
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+  thead
+    display: table-header-group
+  tr
+    page-break-inside: avoid
+  img
+    page-break-inside: avoid
+    max-width: 100% !important
+  p, h2, h3
+    orphans: 3
+    widows: 3
+  h2, h3
+    page-break-after: avoid
