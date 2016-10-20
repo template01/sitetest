@@ -6,7 +6,7 @@ function work_loadWork(postName) {
                         <div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">So solly! I found noding!</h1></div>
                         </div>`
 
-    $.ajax('http://api.template-studio.nl/wp-json/wp/v2//posts?filter[name]=' + postName + "&fields=acf,content,title", {
+    $.ajax('http://api.template-studio.nl/wp-json/wp/v2/posts?filter[name]=' + postName + "&fields=acf,content,title", {
         beforeSend: function(data) {
             $('.workSlide').remove()
         },
