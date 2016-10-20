@@ -10,7 +10,7 @@ function visual_loadVisual() {
 
     var thumbs = ''
 
-    $.ajax('http://api.template-studio.nl/wp-json/pages?filter[name]=visual&fields=content,title', {
+    $.ajax('http://api.template-studio.nl/wp-json/wp/v2//pages?filter[name]=visual&fields=content,title', {
         beforeSend: function(data) {
             $('.visualSlide').remove()
         },

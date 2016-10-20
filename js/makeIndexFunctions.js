@@ -1,5 +1,5 @@
 function makeIndex_loadSliderPosts() {
-    $.ajax('http://api.template-studio.nl/wp-json/posts?fields=slug,title,acf', {
+    $.ajax('http://api.template-studio.nl/wp-json/wp/v2//posts?fields=slug,title,acf', {
         success: function(data) {
             $.each(data, function(i, field) {
                 if (field.slug != "studio-cam") {
@@ -27,7 +27,7 @@ function makeIndex_loadSliderPosts() {
 }
 
 function makeIndex_loadIndexTexts() {
-    $.ajax('http://api.template-studio.nl/wp-json/pages?filter[name]=index&fields=acf', {
+    $.ajax('http://api.template-studio.nl/wp-json/wp/v2//pages?filter[name]=index&fields=acf', {
         success: function(data) {
             indexblurb = data[0].acf.indexblurb
             indexmore = data[0].acf.indexmore
