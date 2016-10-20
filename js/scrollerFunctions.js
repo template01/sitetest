@@ -24,7 +24,18 @@ function scroller_scrollToPart() {
     });
 }
 
+// function scroller_scrollToSwiper() {
+//     $(document).on('click', '.swiper-button-next, .swiper-button-prev', function(event) {
+//         event.preventDefault();
+//         $('html, body').animate({
+//             scrollTop: $('.main-swiper-wrapper').offset().top - $('.mainMenu').outerHeight() +1
+//         }, 500);
+//     });
+// }
+
+
 function init_ScrollerFunctions() {
     scroller_scrollerFunctions()
     scroller_scrollToPart()
+    // scroller_scrollToSwiper()
 }

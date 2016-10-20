@@ -1,5 +1,5 @@
 function resize_resizeCanvas() {
-    $('#studioCamCanvas').css({
+      $('#studioCamCanvas').css({
         'width': $('.swiper-container').width() + 'px',
         // 'height': $('.swiper-container').height() + 'px'
     })
@@ -33,10 +33,13 @@ function resize_resizeWindow() {
             var sliderWrapperTop = $('.main-swiper-wrapper').offset().top
             resize_positionNextFixedBehind()
             resize_resizeCanvas()
-
+          
         }, 150);
 
+
     });
+
+
 }
 
 function init_ResizeFunctions() {

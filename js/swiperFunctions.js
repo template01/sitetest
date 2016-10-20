@@ -1,8 +1,10 @@
 function swiper_swiperSetup(){
+  var swiperH;
   var swiperH = new Swiper('.swiper-container-h', {
       pagination: '.swiper-pagination-h',
       paginationClickable: true,
       navigation: true,
+      // resizeReInit: true,
       autoHeight:true,
       observer: true,
       keyboardControl: true,
@@ -10,7 +12,25 @@ function swiper_swiperSetup(){
       prevButton: '.nav-prev',
       onSlideChangeEnd: function() {
           swiper_setCaptionNav()
+      },
+      onSlideChangeStart: function(){
+        var changeTimer;
+        clearTimeout(changeTimer);
+        changeTimer = setTimeout(function() {
+          $('html, body').animate({
+              scrollTop: $('.main-swiper-wrapper').offset().top - $('.mainMenu').outerHeight() +1
+          }, 250);
+        }, 250);
+
       }
+  });
+  var resizeTimer;
+  $(window).on('resize', function(e) {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        // swiperH.reInit();
+        swiperH.update()
+      }, 160);
   });
 }
 

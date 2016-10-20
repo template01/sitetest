@@ -1,14 +1,12 @@
 function work_loadWork(postName) {
 
-    $('body').addClass('noOverflow')
-
     var unloadWorkButton = `<h1 data-unload-work class="close-button"></h1> `
 
     var nothingFound = `<div class="workSlideInner col1 animated fadeIn">
                         <div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">So solly! I found noding!</h1></div>
                         </div>`
 
-    $.ajax('http://192.168.2.18/posts?filter[name]=' + postName, {
+    $.ajax('http://api.template-studio.nl/wp-json/posts?filter[name]=' + postName + "&fields=acf,content,title", {
         beforeSend: function(data) {
             $('.workSlide').remove()
         },
@@ -33,13 +31,14 @@ function work_loadWork(postName) {
                 var loopElements = ''
                 rawContentElement.each(function() {
                     if ($(this).html() != null) {
-                        loopElements = loopElements + $(this).html()
+                        console.log($(this))
+                        loopElements = loopElements + "<p>" + $(this).html() + "</p>"
                     }
                 })
 
                 post = `<div class="workSlideInner col1 animated fadeIn">
                       <div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">` + data[0].title.rendered + `</h1></div>
-                      <div class="postContent">` + loopElements + `</div>
+                      <div class="postContent"><div class="postContentInfo"><p>` + data[0].acf.postinfo + `</p></div>` + loopElements + `</div>
                       </div>`
             } else {
                 post = nothingFound
@@ -51,9 +50,10 @@ function work_loadWork(postName) {
         },
         complete: function() {
 
-            // $(".workSlide").on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e) {
+            $('body').addClass('noOverflow')
 
             setTimeout(function() {
+
                     $(".workSlide").append(post);
                     $('.workSlide .postHeaderWrapper').attr('style', $(".workSlide").attr('style'))
                     resize_positionPostHeaderWrapperNext()
@@ -72,7 +72,10 @@ function work_unloadWork() {
         $('body').removeClass('noOverflow')
         $('.workSlide').addClass('noOverflow')
         $('.workSlideInner').addClass('fadeOut')
-        $('.workSlide').addClassDelay({class:'slideOutRight',delay:500})
+        $('.workSlide').addClassDelay({
+            class: 'slideOutRight',
+            delay: 500
+        })
         $('.workSlide').animate({
             scrollTop: 0
         }, 500);

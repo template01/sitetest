@@ -267,6 +267,8 @@ body
   width: 100%
   clear: both;
   background: $mainColor
+  box-shadow: 20px 0px 0px $mainColor, -20px 0px 0px $mainColor
+
   // display: inline-block
 
 .fixedBehind
@@ -393,8 +395,10 @@ li
       float: left
       background-color: inherit
       position: absolute
-    h1.postHeader
-      margin-left: 40px
+    h1
+      &.postHeader
+        text-align: center
+
   .postContent
     margin: 0px !important
     height: calc(100vh)
@@ -450,9 +454,17 @@ li
       float: left
       background-color: inherit
       position: absolute
-    h1.postHeader
-      margin-left: 40px
+    h1
+      &.postHeader
+        text-align: center
+        // margin-left: 40px
   .postContent
+    .postContentInfo
+      text-align: center
+      width: 100%
+      display: inline-block
+      p
+        margin-top: 20px
     .lazyload
       height: 1000px
     .lazyloading

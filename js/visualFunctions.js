@@ -1,6 +1,5 @@
 function visual_loadVisual() {
 
-    $('body').addClass('noOverflow')
     // alert('dang')
 
     var unloadWorkButton = `<h1 data-unload-visual class="close-button"></h1> `
@@ -11,7 +10,7 @@ function visual_loadVisual() {
 
     var thumbs = ''
 
-    $.ajax('http://192.168.2.18/pages?filter[name]=visual&fields=content', {
+    $.ajax('http://api.template-studio.nl/wp-json/pages?filter[name]=visual&fields=content,title', {
         beforeSend: function(data) {
             $('.visualSlide').remove()
         },
@@ -19,10 +18,10 @@ function visual_loadVisual() {
             $('body').prepend(`<div class='visualSlide animated slideInRight'></div>`)
 
             var rawContentElement = $(data[0].content.rendered)
-            // console.log('asshole')
-            // console.log(  rawContentElement)
+                // console.log('asshole')
+                // console.log(  rawContentElement)
             wrapper = `<div class="visualSlideInner animated fadeIn">
-                    <div class="col1"><div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">VISUAL</h1></div></div>
+                    <div class="col1"><div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">` + data[0].title.rendered + `</h1></div></div>
                     <div class="visualScroller"><div class="postContent"></div></div>
                     </div>`
 
@@ -32,7 +31,6 @@ function visual_loadVisual() {
                 console.log($(this).find('img').attr('src'))
                 $(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
                 $(this).find('img').remove()
-                // .append('.visualSlide')
                 $(".visualSlide .postContent").append($(this));
 
 
@@ -42,7 +40,7 @@ function visual_loadVisual() {
         error: function() {
             $('body').prepend(`<div class='visualSlide animated slideInRight'></div>`)
             wrapper = `<div class="visualSlideInner animated fadeIn">
-                    <div class="col1"><div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">VISUAL</h1></div></div>
+                    <div class="col1"><div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">VISUAL - not found</h1></div></div>
                     <div class="visualScroller"><div class="postContent">nothing found :()</div></div>
                     </div>`
 
@@ -50,12 +48,16 @@ function visual_loadVisual() {
         },
         complete: function() {
 
+            $('body').addClass('noOverflow')
+
             setTimeout(function() {
                     packeryInit()
                     $('.visualSlide .postHeaderWrapper').attr('style', $(".visualSlide").attr('style'))
                     resize_positionPostHeaderWrapperNext()
                     $('.visualSlide').removeClass('slideInRight')
-                    $('.visualSlide .postContent').css({"visibility":"visible"})
+                    $('.visualSlide .postContent').css({
+                        "visibility": "visible"
+                    })
                 }, 900)
                 //  });
 
@@ -65,20 +67,22 @@ function visual_loadVisual() {
     });
 }
 
-function packeryInit(){
-  // resize_positionVisualContent()
-  $('.postContent').packery({
-    itemSelector: '.visualItem',
-    isHorizontal: true,
-    transitionDuration: 0
-    // gutter:10
-  });
-  $(".visualScroller").mCustomScrollbar({
-     theme:"minimal",
-     axis:"x",
-     scrollInertia:100,
-     advanced:{ updateOnContentResize: true }
-   });
+function packeryInit() {
+    // resize_positionVisualContent()
+    $('.postContent').packery({
+        itemSelector: '.visualItem',
+        isHorizontal: true,
+        transitionDuration: 0
+            // gutter:10
+    });
+    $(".visualScroller").mCustomScrollbar({
+        theme: "minimal",
+        axis: "x",
+        scrollInertia: 100,
+        advanced: {
+            updateOnContentResize: true
+        }
+    });
 
 }
 
@@ -109,6 +113,6 @@ function visual_getVisualEvent() {
 
 
 
-function init_visualFunctions(){
-  visual_getVisualEvent()
+function init_visualFunctions() {
+    visual_getVisualEvent()
 }
