@@ -18,21 +18,32 @@ function work_loadWork(postName) {
                 $('.workSlide').css({
                     'background-color': data[0].acf.backgroundcolor.split(":").pop()
                 }).find()
-
-                rawContentElement.children().filter('img').each(function() {
-                    $(this)
-                        .attr('data-srcset', $(this).attr('srcset'))
-                        .attr('srcset', '')
-                        .attr('data-src', $(this).attr('src'))
-                        .attr('src', '')
-                        .attr('class', 'lazyload');
-                })
+                //
+                // rawContentElement.children().filter('img').each(function() {
+                //     $(this)
+                //         .attr('data-srcset', $(this).attr('srcset'))
+                //         .attr('srcset', '')
+                //         .attr('data-src', $(this).attr('src'))
+                //         .attr('src', '')
+                //         .attr('class', 'lazyload');
+                // })
+                //
+                // rawContentElement.children().filter('.postGallery').each(function() {
+                //     $(this)
+                //         .attr('data-srcset', $(this).attr('srcset'))
+                //         .attr('srcset', '')
+                //         .attr('data-src', $(this).attr('src'))
+                //         .attr('src', '')
+                //         .attr('class', 'lazyload');
+                //     console.log($(this))
+                // })
+                //
 
                 var loopElements = ''
                 rawContentElement.each(function() {
                     if ($(this).html() != null) {
-                        console.log($(this))
-                        loopElements = loopElements + "<p>" + $(this).html() + "</p>"
+                        console.log($(this).prop('outerHTML'))
+                        loopElements = loopElements + $(this).prop('outerHTML')
                     }
                 })
 
