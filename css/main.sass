@@ -447,24 +447,27 @@ li
   // border-left: 2px solid black
   box-shadow: -2px 0px 0px black
   .postHeaderWrapper
-    // background: red
     position: fixed
     top: 0
-    width: inherit
-    // margin-bottom: 40px;
-    h1[data-unload-work]
-      cursor: pointer
-      float: left
-      background-color: inherit
-      position: absolute
-    h1
-      &.postHeader
-        text-align: center
-        // margin-left: 40px
+    width: calc(100% - 15px)
+    // left: 28px
+    .postHeaderInner
+      h1[data-unload-work]
+        cursor: pointer
+        float: left
+        background-color: inherit
+        position: absolute
+        margin: 0
+      h1
+        &.postHeader
+          text-align: center
+          // margin-left: 40px
   .postContent
+    // margin-left: 28px
+    // margin-right: 28px
     .postContentInfo
       text-align: center
-      width: 100%
+      // width: 100%
       display: inline-block
       p
         margin-top: 20px

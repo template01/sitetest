@@ -18,39 +18,34 @@ function work_loadWork(postName) {
                 $('.workSlide').css({
                     'background-color': data[0].acf.backgroundcolor.split(":").pop()
                 }).find()
-                //
-                // rawContentElement.children().filter('img').each(function() {
-                //     $(this)
-                //         .attr('data-srcset', $(this).attr('srcset'))
-                //         .attr('srcset', '')
-                //         .attr('data-src', $(this).attr('src'))
-                //         .attr('src', '')
-                //         .attr('class', 'lazyload');
-                // })
-                //
-                // rawContentElement.children().filter('.postGallery').each(function() {
-                //     $(this)
-                //         .attr('data-srcset', $(this).attr('srcset'))
-                //         .attr('srcset', '')
-                //         .attr('data-src', $(this).attr('src'))
-                //         .attr('src', '')
-                //         .attr('class', 'lazyload');
-                //     console.log($(this))
-                // })
-                //
 
                 var loopElements = ''
                 rawContentElement.each(function() {
                     if ($(this).html() != null) {
-                        console.log($(this).prop('outerHTML'))
+                        // console.log($(this).prop('outerHTML'))
                         loopElements = loopElements + $(this).prop('outerHTML')
                     }
                 })
 
-                post = `<div class="workSlideInner col1 animated fadeIn">
-                      <div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">` + data[0].title.rendered + `</h1></div>
-                      <div class="postContent"><div class="postContentInfo"><p>` + data[0].acf.postinfo + `</p></div>` + loopElements + `</div>
+                // console.log(data[0].content.rendered)
+
+                // post = `<div class="workSlideInner col1 animated fadeIn">
+                //       <div class="postHeaderWrapper">` + unloadWorkButton + `<h1 class="postHeader">` + data[0].title.rendered + `</h1></div>
+                //       <div class="postContent"><div class="postContentInfo"><p>` + data[0].acf.postinfo + `</p></div>` + loopElements + `</div>
+                //       </div>`
+
+                // hello= data[0].content.rendered
+
+
+
+                // console.log($(hello).find('img'))
+
+                post = `<div class="workSlideInner animated fadeIn">
+                      <div class="postHeaderWrapper"><div class="col1 postHeaderInner">` + unloadWorkButton + `<h1 class="postHeader">` + data[0].title.rendered + `</h1></div></div>
+                      <div class="postContent"><div class="postContentInfo"><p>` + data[0].acf.postinfo + `</p></div>` + data[0].content.rendered + `</div>
                       </div>`
+
+
             } else {
                 post = nothingFound
             }
@@ -66,6 +61,27 @@ function work_loadWork(postName) {
             setTimeout(function() {
 
                     $(".workSlide").append(post);
+
+                    // group gallery
+
+                    $(function() {
+
+                        var target = '.gallery-item',
+                            invert = ':not(' + target + ')',
+                            wrap = '<div class="postGallery">',
+                            breakpoints = $('.postContent > *' + invert);
+
+                        breakpoints.each(function() {
+                            $(this).nextUntil(invert).wrapAll(wrap);
+                        });
+
+                        breakpoints.first().prevUntil(invert).wrapAll(wrap);
+
+                        $('.postContent').children(':not(.postGallery)').addClass('col1');
+
+                    });
+                    // group gallery end
+
                     $('.workSlide .postHeaderWrapper').attr('style', $(".workSlide").attr('style'))
                     resize_positionPostHeaderWrapperNext()
                     $('.workSlide').removeClass('slideInRight')
