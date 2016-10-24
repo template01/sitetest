@@ -1,6 +1,7 @@
+
+
 function visual_loadVisual() {
 
-    // alert('dang')
 
     var unloadWorkButton = `<h1 data-unload-visual class="close-button"></h1> `
 
@@ -17,7 +18,7 @@ function visual_loadVisual() {
         success: function(data) {
             $('body').prepend(`<div class='visualSlide animated slideInRight'></div>`)
 
-            var rawContentElement = $(data[0].content.rendered)
+            var rawContentElement = $($.parseHTML(data[0].content.rendered))
                 // console.log('asshole')
                 // console.log(  rawContentElement)
             wrapper = `<div class="visualSlideInner animated fadeIn">
@@ -27,14 +28,14 @@ function visual_loadVisual() {
 
             $(".visualSlide").append(wrapper);
 
-            rawContentElement.filter('.visualItem').each(function() {
-                console.log($(this).find('img').attr('src'))
-                $(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
-                $(this).find('img').remove()
-                $(".visualSlide .postContent").append($(this));
+              rawContentElement.filter('.visualItem').each(function() {
+                  // console.log($(this).find('img').attr('src'))
+                  // $(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
+                  $(this).attr('data-bg',$(this).find("img").attr("src"))
+                  $(this).find('img').remove()
+                  $(".visualSlide .postContent").append($(this));
 
-
-            })
+              })
 
         },
         error: function() {
@@ -58,6 +59,7 @@ function visual_loadVisual() {
                     $('.visualSlide .postContent').css({
                         "visibility": "visible"
                     })
+                    visual_checkInView(300)
                 }, 900)
                 //  });
 
@@ -81,7 +83,28 @@ function packeryInit() {
         scrollInertia: 100,
         advanced: {
             updateOnContentResize: true
+        },
+        callbacks:{
+            onScrollStart:function(){
+              setTimeout(function() {
+                visual_checkInView(150)
+
+              }, 150);
+            },
+            onScrollEnd:function(){
+                visual_checkInView(150)
+            },
+
+          onTotalScroll: function(){
+            $('.visualItem').each(function(){
+              $(this).addClass('animated fadeIn')
+              $(this).css({'background-image':'url('+$(this).attr('data-bg')+')'})
+            })
+          }
+
+
         }
+
     });
 
 }
@@ -111,7 +134,31 @@ function visual_getVisualEvent() {
     });
 }
 
+function visual_checkInView(speed){
 
+  var speed = speed;
+  var timer = setInterval(addBackgroundImg, speed);
+
+  var visualItems =  $( '.visualItem:in-viewport:not(.fadeIn)' );
+
+  var length = visualItems.length;
+
+  var index = 0;
+  function addBackgroundImg() {
+      $( '.visualItem:in-viewport:eq('+index+')' ).css({'background-image':'url('+$( '.visualItem:in-viewport:eq('+index+')' ).attr('data-bg')+')'})
+      setTimeout(function(){
+        $( '.visualItem:in-viewport:eq('+index+')' ).addClass('animated fadeIn')
+        $( '.visualItem:in-viewport:eq('+index+')' ).css({'background-image':'url('+$( '.visualItem:in-viewport:eq('+index+')' ).attr('data-bg')+')'})
+
+        index++;
+
+      },speed/2)
+       if (index > length) {
+           clearInterval(timer);
+       }
+  }
+
+}
 
 function init_visualFunctions() {
     visual_getVisualEvent()
