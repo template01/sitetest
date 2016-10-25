@@ -4,7 +4,6 @@ function makeIndex_loadSliderPosts() {
             $.each(data, function(i, field) {
                 if (field.slug != "studio-cam") {
                     // <img class="lazyload animated" data-src="` + field.acf.customfeaturedimage.sizes.large + `">
-                    console.log(field.acf.customfeaturedimage.sizes)
                     swiperPost =
                               `<div class="swiper-slide" data-load-work=` + field.slug + `>
                                 <div class="caption">` + field.title.rendered + `</div>
