@@ -77,10 +77,14 @@ textarea
 $mainColor : #eee
 
 $mainFont : 'Anonymous Pro', monospace
-$mainFontSize: 24px
+$mainFontSizeSmall: 16px
+$mainFontSizeSmallmid: 16px
+$mainFontSizeMid: 24px
+$mainFontSizeLarge: 28px
 $mainFontWeight: normal
 
 $break-small: 320px
+$break-smallmid: 768px
 $break-mid: 1200px
 $break-large: 1800px
 $break-xlarge: 2000px
@@ -173,7 +177,19 @@ body
   width: 100%
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+
+
 
 .nav-helper
   margin-right: 10px
@@ -217,7 +233,17 @@ body
 .nav-wrapper .nav-caption
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
   margin-left: 80px
   float: left
   &:hover
@@ -239,13 +265,6 @@ body
     margin-left: 10%
     margin-right: 10%
     width: 80%
-
-
-  // @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
-  //   margin-left: 15%
-  //   margin-right: 15%
-  //   width: 70%
-  //   background: red !important
 
   @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
     margin-left: 15%
@@ -332,7 +351,17 @@ body
 h1
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
   text-align: justify
   line-height: 5px
   padding-top: 10px
@@ -364,18 +393,48 @@ h1
 h2
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
 
 p
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
 
 
 li
   font-family: $mainFont
   font-weight: $mainFontWeight
-  font-size: $mainFontSize
+  font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
+    font-size: $mainFontSizeSmall
+  @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+    font-size: $mainFontSizeSmallmid
+  @media screen and (min-width: $break-smallmid) and (max-width: $break-large)
+    font-size: $mainFontSizeMid
+  @media screen and (min-width: $break-large) and (max-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
+  @media screen and (min-width: $break-xlarge)
+    font-size: $mainFontSizeLarge
 
 *[data-load-work]:not(.ignoreColor)
   color: red
