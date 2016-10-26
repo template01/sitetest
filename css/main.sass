@@ -80,7 +80,7 @@ $mainFont : 'Anonymous Pro', monospace
 $mainFontSizeSmall: 14px
 $mainFontSizeSmallmid: 14px
 $mainFontSizeMid: 24px
-$mainFontSizeLarge: 28px
+$mainFontSizeLarge: 24px
 $mainFontWeight: normal
 
 $break-small: 320px
@@ -118,9 +118,14 @@ body
   //   height: 50vw
   // @media screen and (min-width: $break-large)
   //   height: 40vw
+.main-swiper-wrapper
+  margin: 56px 0
 
 
 .swiper-slide
+  max-height: calc(100vh - 112px)
+  overflow: hidden
+
   text-align: center
   font-size: 18px
   /*background: #fff;
@@ -139,7 +144,9 @@ body
   -webkit-align-items: center
   align-items: center
   > img
-    width: 100%
+    width: auto
+    max-width: 100%
+    max-height: calc(100vh - 112px)
   .caption
     display: none
   cursor: pointer
@@ -252,10 +259,10 @@ body
     margin-bottom: -2px
 
 .col1
-  margin-left: 5%
-  margin-right: 5%
-  width: 90%
-  // 
+  margin-left: 56px
+  margin-right: 56px
+  width: calc(100% - 112px)
+  //
   // @media screen and (max-width: $break-small) and (max-width: $break-mid)
   //   margin-left: 2%
   //   margin-right: 2%

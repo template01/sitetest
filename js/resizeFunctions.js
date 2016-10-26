@@ -6,16 +6,16 @@ function resize_resizeCanvas() {
 }
 
 function resize_positionNextFixedBehind() {
-    $('.fixedBehind').each(function() {
-        $(this).css({
-            'width': $(this).parents('.col1').width() + 'px',
-            'margin-top': +$('.mainMenu').outerHeight() + 'px'
-        })
-        $(this).next('.row-full').css({
-            'margin-top': $(this).outerHeight() + $('.mainMenu').outerHeight() + 'px'
-        })
-
-    })
+    // $('.fixedBehind').each(function() {
+    //     $(this).css({
+    //         'width': $(this).parents('.col1').width() + 'px',
+    //         'margin-top': +$('.mainMenu').outerHeight() + 'px'
+    //     })
+    //     $(this).next('.row-full').css({
+    //         'margin-top': $(this).outerHeight() + $('.mainMenu').outerHeight() + 'px'
+    //     })
+    //
+    // })
 }
 
 function resize_positionPostHeaderWrapperNext(){
@@ -33,7 +33,7 @@ function resize_resizeWindow() {
             var sliderWrapperTop = $('.main-swiper-wrapper').offset().top
             resize_positionNextFixedBehind()
             resize_resizeCanvas()
-          
+
         }, 150);
 
 

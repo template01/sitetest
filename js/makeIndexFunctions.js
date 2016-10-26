@@ -5,7 +5,7 @@ function makeIndex_loadSliderPosts() {
                 if (field.slug != "studio-cam") {
                     // <img class="lazyload animated" data-src="` + field.acf.customfeaturedimage.sizes.large + `">
                     swiperPost =
-                              `<div class="swiper-slide" data-load-work=` + field.slug + `>
+                              `<div class="swiper-slide" data-slide-color="` + field.acf.setslidecolor + `" data-load-work=` + field.slug + ` style="background:` + field.acf.setslidecolor + `;">
                                 <div class="caption">` + field.title.rendered + `</div>
 
                                 <img class=" lazyload" data-srcset="` + field.acf.customfeaturedimage.sizes.large + ` 1920w, ` + field.acf.customfeaturedimage.sizes.medium + ` 960w, ` + field.acf.customfeaturedimage.sizes.thumbnail + ` 480w, ` + field.acf.customfeaturedimage.sizes.medium_large + ` 768w" data-src="` + field.acf.customfeaturedimage.sizes.large + `">
@@ -34,7 +34,7 @@ function makeIndex_loadIndexTexts() {
             indexclients = data[0].acf.indexclients
             indexwork = data[0].acf.indexwork
 
-            $(".indexblurb h2").append(indexblurb);
+            // $(".indexblurb h2").append(indexblurb);
             $(".indexmore h2").append(indexmore);
             $(".indexcontact h2").append(indexcontact);
             $(".indexclients").append(indexclients);

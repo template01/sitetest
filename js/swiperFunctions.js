@@ -5,7 +5,7 @@ function swiper_swiperSetup(){
       paginationClickable: true,
       navigation: true,
       // resizeReInit: true,
-      autoHeight:true,
+      // autoHeight:true,
       observer: true,
       keyboardControl: true,
       nextButton: '.nav-next',
