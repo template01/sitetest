@@ -21,6 +21,7 @@ function makeIndex_loadSliderPosts() {
         complete: function() {
             animateInPart('#partSplash')
             scroller_sliderWrapperTop = $('.main-swiper-wrapper').offset().top-$('.mainMenu').outerHeight()
+            scroller_scrollSplashAway()
         }
     });
 }

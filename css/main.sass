@@ -105,6 +105,7 @@ body
   color: #000
   margin: 0
   padding: 0
+  overflow-y: visible
   // margin: 180px
 
 .swiper-container
@@ -361,6 +362,17 @@ body
 
 .mainMenu
   box-shadow: 2px 0px 0px $mainColor, -2px 0px 0px $mainColor
+  height: 100%
+  -webkit-transition: height 1s
+  transition: height 1s
+  &.splashAway
+    height: 56px
+    // .resetHeader
+    //   position: initial
+  h1
+    position: absolute
+    width: 100%
+    bottom: 0
 
 .row
   h1
@@ -388,6 +400,7 @@ h1
   &.menuItemHidden
     display: none
   &.collapsedMenu
+    position: relative
     &:after
       content: ""
       display: inline-block

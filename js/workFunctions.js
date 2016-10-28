@@ -109,13 +109,30 @@ function work_unloadWork() {
         })
 
 
-        $('.workSlide').animate({
-            scrollTop: 0
-        }, 500);
+        // $('.workSlide').animate({
+        //     scrollTop: 0
+        // }, 500);
+
         setTimeout(function() {
             $('.workSlide').empty()
 
         }, 1300)
+        // if($('.workSlide').length>0){
+          // alert('ass')
+          // if (window.location.hash.length != 0) {
+          //   alert('ass')
+          //
+          //   $(window).disablescroll({
+          //       handleScrollbar: false
+          //   });
+          //   setTimeout(function() {
+          //     $(window).disablescroll('undo');
+          //   }, 1000)
+          // }
+
+        // }
+
+
     }
 }
 
@@ -125,7 +142,17 @@ var scrollYPos = 0
 function work_unloadWorkEvent() {
     $(document).on("click", "*[data-unload-work]", function() {
         window.location.hash = ''
-        window.scrollTo(0, scrollYPos)
+        if ($('.mainMenu').hasClass('splashAway')) {
+          window.scrollTo(0, scrollYPos)
+        }else{
+          $(window).disablescroll({
+              handleScrollbar: false
+          });
+          setTimeout(function() {
+            $(window).disablescroll('undo');
+          }, 1000)
+
+        }
 
     });
 }
@@ -135,6 +162,8 @@ function work_getWorkEvent() {
         scrollYPos = window.scrollY
         window.location.hash = 'work/' + $(this).attr('data-load-work')
         visual_unloadVisual()
+
+
     });
 }
 

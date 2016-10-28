@@ -2,8 +2,10 @@
 var scroller_sliderWrapperTop = 0
 
 function scroller_mainMenutoggleLayout(offset) {
-    if (offset > scroller_sliderWrapperTop) {
-        $('.mainMenu h1').addClass('collapsedMenu')
+    if (offset > 56) {
+      if($('.mainMenu').hasClass('splashAway')){
+          $('.mainMenu h1').addClass('collapsedMenu')
+      }
     } else {
         $('.mainMenu h1').removeClass('collapsedMenu')
     }
@@ -24,6 +26,57 @@ function scroller_scrollToPart() {
     });
 }
 
+function scroller_scrollSplashAway() {
+    var scrollSplashOnce = false
+    // window.scrollTo(0, 0)
+    if(document.body.scrollTop>10){
+      $('.mainMenu').addClass('splashAway')
+
+    }
+    window.setTimeout(function() {
+    $(window).scroll(function() {
+
+          // $('.mainMenu').addClass('splashAway')
+          // $(window).disablescroll({
+          //     handleScrollbar: false
+          // });
+
+          if (!$('.mainMenu').hasClass('splashAway')) {
+              $('.mainMenu').addClass('splashAway')
+              $(window).disablescroll({
+                  handleScrollbar: false
+              });
+              window.scrollTo(0, 0)
+              window.setTimeout(function() {
+                  $(window).disablescroll('undo');
+              }, 1300)
+
+          }
+
+          console.log('scroll')
+            // if (!$('.mainMenu').hasClass('splashAway')) {
+            //     $('.mainMenu').addClass('splashAway')
+            //     $(window).disablescroll({
+            //         handleScrollbar: false
+            //     });
+            //     window.scrollTo(0, 0)
+            // } else {
+            //     if (!scrollSplashOnce) {
+            //         // alert('once')
+            //         window.setTimeout(function() {
+            //             // window.scrollTo(0, 0)
+            //
+            //             $(window).disablescroll('undo');
+            //         }, 1000)
+            //         scrollSplashOnce = true
+            //     }
+            // }
+
+    })
+  }, 100)
+
+}
+
 // function scroller_scrollToSwiper() {
 //     $(document).on('click', '.swiper-button-next, .swiper-button-prev', function(event) {
 //         event.preventDefault();
@@ -37,5 +90,7 @@ function scroller_scrollToPart() {
 function init_ScrollerFunctions() {
     scroller_scrollerFunctions()
     scroller_scrollToPart()
-    // scroller_scrollToSwiper()
+    // scroller_scrollSplashAway()
+        // scroller_scrollSplashAway()
+        // scroller_scrollToSwiper()
 }
