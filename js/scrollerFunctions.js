@@ -27,6 +27,8 @@ function scroller_scrollToPart() {
 }
 
 function scroller_scrollSplashAway() {
+
+    window.onscroll = function() { alert("Scrolled"); };
     var scrollSplashOnce = false
     // window.scrollTo(0, 0)
     if(document.body.scrollTop>10){
@@ -40,7 +42,7 @@ function scroller_scrollSplashAway() {
           // $(window).disablescroll({
           //     handleScrollbar: false
           // });
-          alert('scrollllllllllllllll')
+          // alert('scrollllllllllllllll')
 
           if (!$('.mainMenu').hasClass('splashAway')) {
               $('.mainMenu').addClass('splashAway')
