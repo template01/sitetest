@@ -3,6 +3,7 @@ var siteLoaded = false;
 function router_loadIndex() {
     if (!siteLoaded) {
         siteLoaded = true;
+        init_SplashFunctions()
         init_MakeIndexFunctions()
         init_StarterFunctions()
         init_SwiperFunctions()

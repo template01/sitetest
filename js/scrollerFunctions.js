@@ -28,31 +28,28 @@ function scroller_scrollToPart() {
 
 function scroller_scrollSplashAway() {
 
-    // window.onscroll = function() { alert("Scrolled"); };
-    // var scrollSplashOnce = false
-    // window.scrollTo(0, 0)
-    if(document.body.scrollTop>10){
-      $('.mainMenu').addClass('splashAway')
+  if(document.body.scrollTop>10){
+    $('.mainMenu').addClass('splashAway')
 
-    }
-    // window.setTimeout(function() {
+  }
 
+  if (Modernizr.touch) {
     $(window).bind('touchstart touchend', function(e) {
-        alert('ey')
+        // alert('ey')
+        $('.mainMenu').addClass('splashAway')
+        $(window).disablescroll({
+            handleScrollbar: false
+        });
+        window.setTimeout(function() {
+            $(window).disablescroll('undo');
+            // window.scrollTo(0, 0)
+        }, 1300)
+
     });
 
+  } else {
     $(window).scroll(function() {
 
-          // $('.mainMenu').addClass('splashAway')
-          // $(window).disablescroll({
-          //     handleScrollbar: false
-          // });
-          // alert('scrollllllllllllllll')
-          // window.scrollTo(0, 0)
-          //
-          // $(window).disablescroll({
-          //     handleScrollbar: false
-          // });
           if (!$('.mainMenu').hasClass('splashAway')) {
               $('.mainMenu').addClass('splashAway')
               $(window).disablescroll({
@@ -66,45 +63,13 @@ function scroller_scrollSplashAway() {
 
           }
 
-          console.log('scroll')
-            // if (!$('.mainMenu').hasClass('splashAway')) {
-            //     $('.mainMenu').addClass('splashAway')
-            //     $(window).disablescroll({
-            //         handleScrollbar: false
-            //     });
-            //     window.scrollTo(0, 0)
-            // } else {
-            //     if (!scrollSplashOnce) {
-            //         // alert('once')
-            //         window.setTimeout(function() {
-            //             // window.scrollTo(0, 0)
-            //
-            //             $(window).disablescroll('undo');
-            //         }, 1000)
-            //         scrollSplashOnce = true
-            //     }
-            // }
-
     })
-  // }, 100)
+  }
 
 }
-
-// function scroller_scrollToSwiper() {
-//     $(document).on('click', '.swiper-button-next, .swiper-button-prev', function(event) {
-//         event.preventDefault();
-//         $('html, body').animate({
-//             scrollTop: $('.main-swiper-wrapper').offset().top - $('.mainMenu').outerHeight() +1
-//         }, 500);
-//     });
-// }
-
 
 function init_ScrollerFunctions() {
     scroller_scrollerFunctions()
     scroller_scrollToPart()
     scroller_scrollSplashAway()
-    // scroller_scrollSplashAway()
-        // scroller_scrollSplashAway()
-        // scroller_scrollToSwiper()
 }

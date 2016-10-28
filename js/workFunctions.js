@@ -109,9 +109,9 @@ function work_unloadWork() {
         })
 
 
-        // $('.workSlide').animate({
-        //     scrollTop: 0
-        // }, 500);
+        $('.workSlide').animate({
+            scrollTop: 0
+        }, 500);
 
         setTimeout(function() {
             $('.workSlide').empty()
@@ -145,13 +145,7 @@ function work_unloadWorkEvent() {
         if ($('.mainMenu').hasClass('splashAway')) {
           window.scrollTo(0, scrollYPos)
         }else{
-          $(window).disablescroll({
-              handleScrollbar: false
-          });
-          setTimeout(function() {
-            $(window).disablescroll('undo');
-          }, 1000)
-
+          scroller_scrollSplashAway()
         }
 
     });
