@@ -52,9 +52,9 @@ function scroller_scrollSplashAway() {
                   handleScrollbar: false
               });
               window.scrollTo(0, 0)
-              window.setTimeout(function() {
-                  $(window).disablescroll('undo');
-              }, 1300)
+              // window.setTimeout(function() {
+              //     $(window).disablescroll('undo');
+              // }, 1300)
 
           }
 
