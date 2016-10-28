@@ -28,12 +28,9 @@ function scroller_scrollToPart() {
 
 function scroller_scrollSplashAway() {
 
-  var count = 0;
-  // window.addEventListener( "scroll", function( event ) {
-  //     // count++;
-  //      alert("Scrosssssssssslled");
-  // });
-
+  $( window ).scroll(function() {
+alert('eedssssssssssssssssssssssssssssey')
+});
     // window.onscroll = function() { alert("Scrolled"); };
     var scrollSplashOnce = false
     // window.scrollTo(0, 0)
