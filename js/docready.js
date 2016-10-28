@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // init_router()
+    init_router()
     $( window ).scroll(function() {
   alert('eeey')
 });
