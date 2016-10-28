@@ -29,10 +29,10 @@ function scroller_scrollToPart() {
 function scroller_scrollSplashAway() {
 
   var count = 0;
-  window.addEventListener( "scroll", function( event ) {
-      // count++;
-       alert("Scrosssssssssslled");
-  });
+  // window.addEventListener( "scroll", function( event ) {
+  //     // count++;
+  //      alert("Scrosssssssssslled");
+  // });
 
     // window.onscroll = function() { alert("Scrolled"); };
     var scrollSplashOnce = false
