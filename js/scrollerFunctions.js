@@ -40,9 +40,9 @@ function scroller_scrollSplashAway() {
           // $(window).disablescroll({
           //     handleScrollbar: false
           // });
+          alert('scrollllllllllllllll')
 
           if (!$('.mainMenu').hasClass('splashAway')) {
-              alert('splach away')
               $('.mainMenu').addClass('splashAway')
               $(window).disablescroll({
                   handleScrollbar: false
