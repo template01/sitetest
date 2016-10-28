@@ -57,7 +57,16 @@ function scroller_scrollSplashAway() {
               window.setTimeout(function() {
                 window.scrollTo(0, 0)
               }, 100)
-
+              window.setTimeout(function() {
+                window.scrollTo(0, 0)
+              }, 150)
+              window.setTimeout(function() {
+                window.scrollTo(0, 0)
+              }, 200)
+              window.setTimeout(function() {
+                window.scrollTo(0, 0)
+              }, 250)
+              
               window.setTimeout(function() {
                   $(window).disablescroll('undo');
                   // window.scrollTo(0, 0)
