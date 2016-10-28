@@ -1,6 +1,6 @@
 function starter_studioCam() {
     var timeoutPeriod = 800;
-    var imageURI = 'http://template01.info/serverOnly/stillcam/checkFile.php';
+    var imageURI = 'http://template-studio.nl/stillcam/checkFile.php';
     var x = 0,
         y = 0;
     var img = new Image();

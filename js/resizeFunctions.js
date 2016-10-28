@@ -1,8 +1,16 @@
 function resize_resizeCanvas() {
+    if($(window).width()>768){
       $('#studioCamCanvas').css({
-        'width': $('.swiper-container').width() + 'px',
-        // 'height': $('.swiper-container').height() + 'px'
-    })
+          'width': $('.swiper-container').height() * 2.2 + 'px',
+          'height': ''
+      })
+    }else{
+      $('#studioCamCanvas').css({
+          'height': $('.swiper-container').width() / 1.77777777777777777778 + 'px',
+          'width': ''
+      })
+    }
+
 }
 
 function resize_positionNextFixedBehind() {
@@ -18,10 +26,10 @@ function resize_positionNextFixedBehind() {
     // })
 }
 
-function resize_positionPostHeaderWrapperNext(){
-  $('.postContent').css({
-      'margin-top': +$('.postHeaderWrapper').outerHeight() + 'px'
-  })
+function resize_positionPostHeaderWrapperNext() {
+    $('.postContent').css({
+        'margin-top': +$('.postHeaderWrapper').outerHeight() + 'px'
+    })
 
 }
 
