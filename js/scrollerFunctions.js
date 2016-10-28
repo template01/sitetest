@@ -43,11 +43,11 @@ function scroller_scrollSplashAway() {
           //     handleScrollbar: false
           // });
           // alert('scrollllllllllllllll')
-          window.scrollTo(0, 0)
-          
-          $(window).disablescroll({
-              handleScrollbar: false
-          });
+          // window.scrollTo(0, 0)
+          //
+          // $(window).disablescroll({
+          //     handleScrollbar: false
+          // });
           if (!$('.mainMenu').hasClass('splashAway')) {
               $('.mainMenu').addClass('splashAway')
               $(window).disablescroll({
@@ -56,6 +56,7 @@ function scroller_scrollSplashAway() {
               window.scrollTo(0, 0)
               window.setTimeout(function() {
                   $(window).disablescroll('undo');
+                  window.scrollTo(0, 0)
               }, 1300)
 
           }
