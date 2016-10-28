@@ -43,7 +43,9 @@ function scroller_scrollSplashAway() {
           //     handleScrollbar: false
           // });
           // alert('scrollllllllllllllll')
-
+          $(window).disablescroll({
+              handleScrollbar: false
+          });
           if (!$('.mainMenu').hasClass('splashAway')) {
               $('.mainMenu').addClass('splashAway')
               $(window).disablescroll({
