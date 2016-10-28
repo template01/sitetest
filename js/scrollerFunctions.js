@@ -96,6 +96,7 @@ alert('eedssssssssssssssssssssssssssssey')
 function init_ScrollerFunctions() {
     scroller_scrollerFunctions()
     scroller_scrollToPart()
+    scroller_scrollSplashAway()
     // scroller_scrollSplashAway()
         // scroller_scrollSplashAway()
         // scroller_scrollToSwiper()
