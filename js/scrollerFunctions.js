@@ -29,13 +29,13 @@ function scroller_scrollToPart() {
 function scroller_scrollSplashAway() {
 
     // window.onscroll = function() { alert("Scrolled"); };
-    var scrollSplashOnce = false
+    // var scrollSplashOnce = false
     // window.scrollTo(0, 0)
     if(document.body.scrollTop>10){
       $('.mainMenu').addClass('splashAway')
 
     }
-    window.setTimeout(function() {
+    // window.setTimeout(function() {
     $(window).scroll(function() {
 
           // $('.mainMenu').addClass('splashAway')
@@ -76,7 +76,7 @@ function scroller_scrollSplashAway() {
             // }
 
     })
-  }, 100)
+  // }, 100)
 
 }
 
