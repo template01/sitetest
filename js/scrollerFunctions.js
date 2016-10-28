@@ -28,7 +28,13 @@ function scroller_scrollToPart() {
 
 function scroller_scrollSplashAway() {
 
-    window.onscroll = function() { alert("Scrolled"); };
+  var count = 0;
+  window.addEventListener( "scroll", function( event ) {
+      // count++;
+       alert("Scrosssssssssslled");
+  });
+
+    // window.onscroll = function() { alert("Scrolled"); };
     var scrollSplashOnce = false
     // window.scrollTo(0, 0)
     if(document.body.scrollTop>10){
