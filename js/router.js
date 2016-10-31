@@ -1,7 +1,7 @@
 var siteLoaded = false;
 
 // triggered in scrollerFunctions.js
-function init_postSplashFunctions() {
+function router_initPostSplashFunctions() {
   init_MakeIndexFunctions()
   init_StarterFunctions()
   init_SwiperFunctions()
@@ -16,9 +16,13 @@ function router_loadIndex() {
         siteLoaded = true;
         init_SplashFunctions()
         init_ScrollerFunctions()
+
+    }else{
+      swiper_checkStudioCamToggle()
     }
     work_unloadWork()
     visual_unloadVisual()
+    // starter_studioCamStart()
 
 }
 
@@ -27,6 +31,7 @@ function router_routerSetup() {
         'work/:link?': function(link) {
             if (window.location.hash.indexOf("/") >= 0) {
                 work_loadWork(link)
+                starter_studioCamStop()
                 init_WorkSlideFunctions()
             }else{
               window.location.hash = ''

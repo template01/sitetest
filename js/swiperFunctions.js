@@ -12,6 +12,7 @@ function swiper_swiperSetup(){
       prevButton: '.nav-prev',
       onSlideChangeEnd: function() {
           swiper_setCaptionNav()
+          swiper_checkStudioCamToggle()
       },
       onSlideChangeStart: function(){
         var changeTimer;
@@ -32,6 +33,19 @@ function swiper_swiperSetup(){
         swiperH.update()
       }, 160);
   });
+}
+
+var triggerOnce = false
+function swiper_checkStudioCamToggle(){
+  if($('.swiper-slide-active').attr('data-load-work') == "studio-cam" && $('.swiper-slide-active').is(':in-viewport')){
+    if(!triggerOnce){
+      starter_studioCamStart()
+      triggerOnce = true
+    }
+  }else{
+    starter_studioCamStop()
+    triggerOnce = false
+  }
 }
 
 function swiper_setCaptionNav() {

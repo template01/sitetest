@@ -28,52 +28,75 @@ function scroller_scrollToPart() {
 
 function scroller_scrollSplashAway() {
 
+
+
     if (document.body.scrollTop > 10) {
         $('.mainMenu').addClass('splashAway')
 
     }
 
     if (Modernizr.touch) {
+
+        var firstTouch = false
+
         $(window).bind('touchstart touchend', function(e) {
-            // alert('ey')
+            if(!firstTouch){
+              $('.mainMenu').addClass('splashAway')
+              $(window).disablescroll({
+                  handleScrollbar: false
+              });
+              window.setTimeout(function() {
+                  $(window).disablescroll('undo');
+                  // window.scrollTo(0, 0)
+              }, 1300)
+
+              window.setTimeout(function() {
+                  router_initPostSplashFunctions()
+              }, 1000)
+
+              firstTouch = true
+              // alert('first')
+            }
+        });
+
+    } else {
+
+      var scrollDebounceDesktop = debounce(function() {
+        // All the taxing stuff you do
+        if (!$('.mainMenu').hasClass('splashAway')) {
             $('.mainMenu').addClass('splashAway')
             $(window).disablescroll({
                 handleScrollbar: false
             });
+            window.scrollTo(0, 0)
             window.setTimeout(function() {
                 $(window).disablescroll('undo');
                 // window.scrollTo(0, 0)
+
             }, 1300)
 
             window.setTimeout(function() {
-                init_postSplashFunctions()
-            }, 1000)
+                router_initPostSplashFunctions()
+            }, 800)
 
-        });
+        }
+        // console.log('hay')
+      }, 150);
 
-    } else {
-        $(window).scroll(function() {
+      window.addEventListener('scroll', scrollDebounceDesktop);
 
-            if (!$('.mainMenu').hasClass('splashAway')) {
-                $('.mainMenu').addClass('splashAway')
-                $(window).disablescroll({
-                    handleScrollbar: false
-                });
-                window.scrollTo(0, 0)
-                window.setTimeout(function() {
-                    $(window).disablescroll('undo');
-                    // window.scrollTo(0, 0)
-
-                }, 1300)
-
-                window.setTimeout(function() {
-                    init_postSplashFunctions()
-                }, 800)
-
-            }
-
-        })
     }
+
+}
+
+function scroller_toggleStudioCam(){
+
+      var scroller_toggleStudioCamCheck = debounce(function() {
+
+        swiper_checkStudioCamToggle()
+      }, 100);
+
+      window.addEventListener('scroll', scroller_toggleStudioCamCheck);
 
 }
 
@@ -81,4 +104,5 @@ function init_ScrollerFunctions() {
     scroller_scrollerFunctions()
     scroller_scrollToPart()
     scroller_scrollSplashAway()
+    scroller_toggleStudioCam()
 }
