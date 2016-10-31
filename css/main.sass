@@ -132,15 +132,20 @@ body
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%
-    @media screen and (max-width: $break-smallmid)
-      top: calc(50% - 20px);
-
+    width: calc(100% - 56px - 56px)
 
     p
+      font-size: 200%
       margin: 0 auto
       // text-transform: capitalize
       text-align: justify
+    @media screen and (max-width: $break-smallmid)
+      top: calc(50% - 20px);
+      width: calc(100% - 20px)
+      p
+        font-size: 100%
+
+
 
 .splashAway
   #splashPage
