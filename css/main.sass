@@ -89,6 +89,7 @@ $break-mid: 1200px
 $break-large: 1800px
 $break-xlarge: 2000px
 
+$offsetsmallmid: 39px
 
 
 
@@ -118,7 +119,7 @@ body
   height: calc(100% - 112px)
   @media screen and (max-width: $break-smallmid)
     margin: 10px 0px
-    height: calc(100% - 21px - 26px)
+    height: calc(100% - #{$offsetsmallmid} - 8px)
     // margin: 56px 0px
 
 
@@ -164,7 +165,7 @@ body
   margin: 56px 0
   @media screen and (max-width: $break-smallmid)
     // margin: 39px 0
-    margin-top: 56px
+    margin-top: $offsetsmallmid
     margin-bottom: 0
     // margin: 39px 0
     // margin: auto
@@ -362,6 +363,8 @@ body
     margin-left: 0%
     margin-right: 0%
     width: 50%
+    @media screen and (max-width: $break-smallmid)
+      width: 100%
     float: left
     display: inline-block
     background: $mainColor
@@ -414,6 +417,10 @@ body
   transition: top 1s
   &.splashAway
     top: calc(-100% + 56px)
+    @media screen and (max-width: $break-smallmid)
+      top: calc(-100% + #{$offsetsmallmid})
+
+
     // height: 56px
     // .resetHeader
     //   position: initial
@@ -421,6 +428,9 @@ body
     position: absolute
     width: 100%
     bottom: 0
+    @media screen and (max-width: $break-smallmid)
+      line-height: 4px;
+
 
 .row
   h1
