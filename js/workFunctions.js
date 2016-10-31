@@ -117,21 +117,6 @@ function work_unloadWork() {
             $('.workSlide').empty()
 
         }, 1300)
-        // if($('.workSlide').length>0){
-          // alert('ass')
-          // if (window.location.hash.length != 0) {
-          //   alert('ass')
-          //
-          //   $(window).disablescroll({
-          //       handleScrollbar: false
-          //   });
-          //   setTimeout(function() {
-          //     $(window).disablescroll('undo');
-          //   }, 1000)
-          // }
-
-        // }
-
 
     }
 }

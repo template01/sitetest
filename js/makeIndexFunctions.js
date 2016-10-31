@@ -16,12 +16,12 @@ function makeIndex_loadSliderPosts() {
             });
         },
         error: function() {
-            alert('error :(')
+            // alert('error :(')
         },
         complete: function() {
             animateInPart('#partSplash')
             scroller_sliderWrapperTop = $('.main-swiper-wrapper').offset().top-$('.mainMenu').outerHeight()
-            
+
         }
     });
 }
@@ -43,7 +43,7 @@ function makeIndex_loadIndexTexts() {
 
         },
         error: function() {
-            alert('error :(')
+            // alert('error :(')
         },
         complete: function() {
             resize_positionNextFixedBehind()

@@ -3,9 +3,9 @@ var scroller_sliderWrapperTop = 0
 
 function scroller_mainMenutoggleLayout(offset) {
     if (offset > 56) {
-      if($('.mainMenu').hasClass('splashAway')){
-          $('.mainMenu h1').addClass('collapsedMenu')
-      }
+        if ($('.mainMenu').hasClass('splashAway')) {
+            $('.mainMenu h1').addClass('collapsedMenu')
+        }
     } else {
         $('.mainMenu h1').removeClass('collapsedMenu')
     }
@@ -28,43 +28,52 @@ function scroller_scrollToPart() {
 
 function scroller_scrollSplashAway() {
 
-  if(document.body.scrollTop>10){
-    $('.mainMenu').addClass('splashAway')
-
-  }
-
-  if (Modernizr.touch) {
-    $(window).bind('touchstart touchend', function(e) {
-        // alert('ey')
+    if (document.body.scrollTop > 10) {
         $('.mainMenu').addClass('splashAway')
-        $(window).disablescroll({
-            handleScrollbar: false
+
+    }
+
+    if (Modernizr.touch) {
+        $(window).bind('touchstart touchend', function(e) {
+            // alert('ey')
+            $('.mainMenu').addClass('splashAway')
+            $(window).disablescroll({
+                handleScrollbar: false
+            });
+            window.setTimeout(function() {
+                $(window).disablescroll('undo');
+                // window.scrollTo(0, 0)
+            }, 1300)
+
+            window.setTimeout(function() {
+                init_postSplashFunctions()
+            }, 1000)
+
         });
-        window.setTimeout(function() {
-            $(window).disablescroll('undo');
-            // window.scrollTo(0, 0)
-        }, 1300)
 
-    });
+    } else {
+        $(window).scroll(function() {
 
-  } else {
-    $(window).scroll(function() {
+            if (!$('.mainMenu').hasClass('splashAway')) {
+                $('.mainMenu').addClass('splashAway')
+                $(window).disablescroll({
+                    handleScrollbar: false
+                });
+                window.scrollTo(0, 0)
+                window.setTimeout(function() {
+                    $(window).disablescroll('undo');
+                    // window.scrollTo(0, 0)
 
-          if (!$('.mainMenu').hasClass('splashAway')) {
-              $('.mainMenu').addClass('splashAway')
-              $(window).disablescroll({
-                  handleScrollbar: false
-              });
-              window.scrollTo(0, 0)
-              window.setTimeout(function() {
-                  $(window).disablescroll('undo');
-                  // window.scrollTo(0, 0)
-              }, 1300)
+                }, 1300)
 
-          }
+                window.setTimeout(function() {
+                    init_postSplashFunctions()
+                }, 800)
 
-    })
-  }
+            }
+
+        })
+    }
 
 }
 

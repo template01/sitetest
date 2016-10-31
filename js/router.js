@@ -1,17 +1,21 @@
 var siteLoaded = false;
 
+// triggered in scrollerFunctions.js
+function init_postSplashFunctions() {
+  init_MakeIndexFunctions()
+  init_StarterFunctions()
+  init_SwiperFunctions()
+  init_ResizeFunctions()
+  init_WorkFunctions()
+  init_visualFunctions()
+}
+// end
+
 function router_loadIndex() {
     if (!siteLoaded) {
         siteLoaded = true;
         init_SplashFunctions()
-        init_MakeIndexFunctions()
-        init_StarterFunctions()
-        init_SwiperFunctions()
-        init_ResizeFunctions()
         init_ScrollerFunctions()
-        init_WorkFunctions()
-        init_visualFunctions()
-
     }
     work_unloadWork()
     visual_unloadVisual()

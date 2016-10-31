@@ -116,27 +116,25 @@ body
   font-size: $mainFontSizeMid
   margin: 56px 0px
   height: calc(100% - 112px)
-  transition: opacity 0.5s ease, padding-bottom 0.5s, padding-top 0.5s, margin 0.5s, overflow 0.5s, height 0.5s
+  // transition: opacity 0.5s ease, padding-bottom 0.5s, padding-top 0.5s, margin 0.5s, overflow 0.5s, height 0.5s
+  // transition: top 0.5s ease
+  transition: opacity 0.5s ease
   padding: 20px
   .textBlurb
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%
+    width: 70%
     p
       margin: 0 auto
-      text-align: center
+      // text-transform: capitalize
+      text-align: justify
 
 .splashAway
   #splashPage
     opacity: 0
-    // max-height: 0px;
     overflow: hidden
-    height: 0px
-    // max-height: 0px
-    margin: 0px 0px
-    padding: 0px 20px
 
 
 .swiper-container
@@ -394,10 +392,12 @@ body
 .mainMenu
   box-shadow: 2px 0px 0px $mainColor, -2px 0px 0px $mainColor
   height: 100%
-  -webkit-transition: height 1s
-  transition: height 1s
+  top: 0
+  -webkit-transition: top 1s
+  transition: top 1s
   &.splashAway
-    height: 56px
+    top: calc(-100% + 56px)
+    // height: 56px
     // .resetHeader
     //   position: initial
   h1
@@ -431,11 +431,7 @@ h1
   &.menuItemHidden
     display: none
   &.collapsedMenu
-    position: relative
-    &:after
-      content: ""
-      display: inline-block
-      width: 100%
+    // position: relative
     // text-align-last:center !important
     text-align: center
     float:left !important
@@ -443,7 +439,22 @@ h1
     letter-spacing: -3px
     width: 25%;
     // text-align: center
-    &:last-of-type
+    &:after
+      content: ""
+      display: inline-block
+      width: 100%
+
+    //based on (four) 4 header items!
+
+    &:nth-of-type(1)
+      left: 0%
+    &:nth-of-type(2)
+      left: 25%
+    &:nth-of-type(3)
+      left: 50%
+    &:nth-of-type(4)
+      left: 75%
+
       // text-align-last: right !important'
     &.menuItemHidden
       display: block
