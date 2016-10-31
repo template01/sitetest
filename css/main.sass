@@ -77,8 +77,8 @@ textarea
 $mainColor : #eee
 
 $mainFont : 'Anonymous Pro', monospace
-$mainFontSizeSmall: 14px
-$mainFontSizeSmallmid: 14px
+$mainFontSizeSmall: 12px
+$mainFontSizeSmallmid: 12px
 $mainFontSizeMid: 24px
 $mainFontSizeLarge: 24px
 $mainFontWeight: normal
@@ -116,6 +116,12 @@ body
   font-size: $mainFontSizeMid
   margin: 56px 0px
   height: calc(100% - 112px)
+  @media screen and (max-width: $break-smallmid)
+    margin: 10px 0px
+    height: calc(100% - 21px - 26px)
+    // margin: 56px 0px
+
+
   // transition: opacity 0.5s ease, padding-bottom 0.5s, padding-top 0.5s, margin 0.5s, overflow 0.5s, height 0.5s
   // transition: top 0.5s ease
   transition: opacity 0.5s ease
@@ -126,6 +132,10 @@ body
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%
+    @media screen and (max-width: $break-smallmid)
+      top: calc(50% - 20px);
+
+
     p
       margin: 0 auto
       // text-transform: capitalize
@@ -153,7 +163,11 @@ body
 .main-swiper-wrapper
   margin: 56px 0
   @media screen and (max-width: $break-smallmid)
-    margin: 39px 0
+    // margin: 39px 0
+    margin-top: 56px
+    margin-bottom: 0
+    // margin: 39px 0
+    // margin: auto
 
 
 
@@ -361,6 +375,9 @@ body
 .row-full:first-of-type
     // background: red !important;
     padding-top: 60px
+    @media screen and (max-width: $break-smallmid)
+      padding-top: 0px
+
 
 
 .row-full
@@ -618,6 +635,10 @@ li
     position: fixed
     top: 0
     width: calc(100% - 15px)
+    // width: calc(100% - 15px)
+    @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
+      width: 100%
+
     z-index: 999
     // left: 28px
     .postHeaderInner

@@ -52,7 +52,7 @@ function scroller_scrollSplashAway() {
 
               window.setTimeout(function() {
                   router_initPostSplashFunctions()
-              }, 1000)
+              }, 800)
 
               firstTouch = true
               // alert('first')

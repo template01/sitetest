@@ -81,6 +81,7 @@ function work_loadWork(postName) {
                     $('.workSlide .postHeaderWrapper').attr('style', $(".workSlide").attr('style'))
                     resize_positionPostHeaderWrapperNext()
                     $('.workSlide').removeClass('slideInRight')
+                    $('.workSlideInner').removeClass('fadeIn')
                 }, 900)
                 //  });
 

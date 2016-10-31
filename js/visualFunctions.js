@@ -1,6 +1,7 @@
 
 
 function visual_loadVisual() {
+  // alert('hey')
 
 
     var unloadWorkButton = `<h1 data-unload-visual class="close-button"></h1> `
@@ -29,7 +30,7 @@ function visual_loadVisual() {
             $(".visualSlide").append(wrapper);
 
               rawContentElement.filter('.visualItem').each(function() {
-                  // console.log($(this).find('img').attr('src'))
+                  console.log($(this).find('img'))
                   // $(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
                   $(this).attr('data-bg',$(this).find("img").attr("src"))
                   $(this).find('img').remove()
@@ -56,6 +57,7 @@ function visual_loadVisual() {
                     $('.visualSlide .postHeaderWrapper').attr('style', $(".visualSlide").attr('style'))
                     resize_positionPostHeaderWrapperNext()
                     $('.visualSlide').removeClass('slideInRight')
+                    $('.visualSlideInner').removeClass('fadeIn')
                     $('.visualSlide .postContent').css({
                         "visibility": "visible"
                     })
@@ -77,35 +79,46 @@ function packeryInit() {
         transitionDuration: 0
             // gutter:10
     });
-    $(".visualScroller").mCustomScrollbar({
-        theme: "minimal",
-        axis: "x",
-        scrollInertia: 100,
-        advanced: {
-            updateOnContentResize: true
-        },
-        callbacks:{
-            onScrollStart:function(){
-              setTimeout(function() {
-                visual_checkInView(150)
 
-              }, 150);
+    if (Modernizr.touch) {
+      $(".visualScroller .postContent").css({'width':'100%','overflow-x':'scroll','overflow-y':'hidden'})
+      $(window).bind('touchstart touchend', function(e) {
+        $( '.visualItem:in-viewport').each(function(){
+          $(this).css({'background-image':'url('+$(this).attr('data-bg')+')'}).addClass('animated fadeIn')
+        })
+      });
+    }else{
+
+        $(".visualScroller").mCustomScrollbar({
+            theme: "minimal",
+            axis: "x",
+            scrollInertia: 100,
+            advanced: {
+                updateOnContentResize: true
             },
-            onScrollEnd:function(){
-                visual_checkInView(150)
-            },
+            callbacks:{
+                onScrollStart:function(){
+                  setTimeout(function() {
+                    visual_checkInView(150)
 
-          onTotalScroll: function(){
-            $('.visualItem').each(function(){
-              $(this).addClass('animated fadeIn')
-              $(this).css({'background-image':'url('+$(this).attr('data-bg')+')'})
-            })
-          }
+                  }, 150);
+                },
+                onScrollEnd:function(){
+                    visual_checkInView(150)
+                },
+
+              onTotalScroll: function(){
+                $('.visualItem').each(function(){
+                  $(this).addClass('animated fadeIn')
+                  $(this).css({'background-image':'url('+$(this).attr('data-bg')+')'})
+                })
+              }
 
 
-        }
+            }
 
-    });
+        });
+    }
 
 }
 
