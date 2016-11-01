@@ -3,6 +3,7 @@ function splash_loadSplash() {
         success: function(data) {
             indexblurb = data[0].acf.indexblurb
             $("#splashPage").append('<div class="textBlurb animated fadeIn"><p id="fittexttextBlurb" >'+indexblurb+'</p></div>');
+            // $("#myText").find('tspan').html(indexblurb)
 
         },
         error: function() {

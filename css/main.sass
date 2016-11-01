@@ -110,21 +110,20 @@ body
   // margin: 180px
 
 #splashPage
-  background-color: rgb(80,80,80)
-  color: $mainColor
+  // background-color: rgb(80,80,80)
+  color: black
   font-family: $mainFont
   font-weight: $mainFontWeight
   font-size: $mainFontSizeMid
   margin: 56px 0px
   height: calc(100% - 112px)
+  // svg
+  //   width: 100%
+  //   height: 100%
+  //   color: white
   @media screen and (max-width: $break-smallmid)
     margin: 10px 0px
     height: calc(100% - #{$offsetsmallmid} - 8px)
-    // margin: 56px 0px
-
-
-  // transition: opacity 0.5s ease, padding-bottom 0.5s, padding-top 0.5s, margin 0.5s, overflow 0.5s, height 0.5s
-  // transition: top 0.5s ease
   transition: opacity 0.5s ease
   padding: 20px
   .textBlurb
@@ -132,10 +131,10 @@ body
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100% - 56px - 56px)
+    width: calc(70%)
 
     p
-      font-size: 200%
+      font-size: $mainFontSizeMid * 2
       margin: 0 auto
       // text-transform: capitalize
       text-align: justify
@@ -424,19 +423,19 @@ body
     top: calc(-100% + 56px)
     @media screen and (max-width: $break-smallmid)
       top: calc(-100% + #{$offsetsmallmid})
-
+    h1
+      opacity: 1
 
     // height: 56px
     // .resetHeader
     //   position: initial
   h1
+    opacity: 0
     position: absolute
     width: 100%
     bottom: 0
     @media screen and (max-width: $break-smallmid)
       line-height: 4px;
-
-
 .row
   h1
     & + *
