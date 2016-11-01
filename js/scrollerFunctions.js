@@ -26,6 +26,12 @@ function scroller_scrollToPart() {
     });
 }
 
+function scroller_iosCheck(){
+  if(!!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)){
+    $('.postHeaderWrapper').css({'position':'absolute'})
+  }
+}
+
 function scroller_scrollSplashAway() {
 
 
@@ -62,9 +68,9 @@ function scroller_scrollSplashAway() {
     } else {
 
       var scrollDebounceDesktop = debounce(function() {
-        // All the taxing stuff you do
+
         if (!$('.mainMenu').hasClass('splashAway')) {
-          // alert('splashawayyyy')
+
             $('.mainMenu').addClass('splashAway')
             $(window).disablescroll({
                 handleScrollbar: false

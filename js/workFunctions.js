@@ -82,6 +82,8 @@ function work_loadWork(postName) {
                     resize_positionPostHeaderWrapperNext()
                     $('.workSlide').removeClass('slideInRight')
                     $('.workSlideInner').removeClass('fadeIn')
+
+                    scroller_iosCheck()
                 }, 900)
                 //  });
 

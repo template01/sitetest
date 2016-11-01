@@ -140,9 +140,11 @@ body
       text-align: justify
     @media screen and (max-width: $break-smallmid)
       top: calc(50% - 20px);
-      width: calc(100% - 20px)
+      width: calc(90%)
+
       p
-        font-size: 100%
+        font-size: $mainFontSizeSmallmid * 2
+
 
 
 
@@ -555,6 +557,7 @@ li
 
 .visualSlide
   position: fixed
+  -webkit-overflow-scrolling: touch
   top: 0
   left: 0
   width: 100%
@@ -643,10 +646,12 @@ li
   z-index: 999
   overflow-y: auto
   overflow-x: hidden
+  -webkit-overflow-scrolling: touch
   // border-left: 2px solid black
   box-shadow: -2px 0px 0px black
   .postHeaderWrapper
     position: fixed
+
     top: 0
     width: calc(100% - 15px)
     // width: calc(100% - 15px)
