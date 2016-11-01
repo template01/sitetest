@@ -64,7 +64,7 @@ function scroller_scrollSplashAway() {
       var scrollDebounceDesktop = debounce(function() {
         // All the taxing stuff you do
         if (!$('.mainMenu').hasClass('splashAway')) {
-          alert('splashawayyyy')
+          // alert('splashawayyyy')
             $('.mainMenu').addClass('splashAway')
             $(window).disablescroll({
                 handleScrollbar: false
