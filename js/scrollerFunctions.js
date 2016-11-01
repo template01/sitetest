@@ -29,11 +29,11 @@ function scroller_scrollToPart() {
 function scroller_scrollSplashAway() {
 
 
-
-    if (document.body.scrollTop > 10) {
-        $('.mainMenu').addClass('splashAway')
-
-    }
+    //
+    // if (document.body.scrollTop > 10) {
+    //     $('.mainMenu').addClass('splashAway')
+    //
+    // }
 
     if (Modernizr.touch) {
 
@@ -64,6 +64,7 @@ function scroller_scrollSplashAway() {
       var scrollDebounceDesktop = debounce(function() {
         // All the taxing stuff you do
         if (!$('.mainMenu').hasClass('splashAway')) {
+          alert('splashawayyyy')
             $('.mainMenu').addClass('splashAway')
             $(window).disablescroll({
                 handleScrollbar: false
