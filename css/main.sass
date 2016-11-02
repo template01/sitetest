@@ -236,6 +236,7 @@ body
 
 
 .nav-wrapper
+
   position: relative
   font-size: 24px
   display: inline-block
@@ -243,6 +244,14 @@ body
   font-family: $mainFont
   font-weight: $mainFontWeight
   font-size: $mainFontSizeMid
+  @media screen and (max-width: $break-smallmid)
+    height: calc(#{$offsetsmallmid} - 2px)
+    line-height:  calc(#{$offsetsmallmid} - 2px)
+
+  @media screen and (min-width: $break-smallmid)
+    height: 56px
+    line-height: calc( 56px - 2px)  
+
   @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
     font-size: $mainFontSizeSmall
   @media screen and (max-width: $break-smallmid) and (max-width: $break-mid)
@@ -258,7 +267,15 @@ body
 
 .nav-helper
   margin-right: 10px
-
+  &:after
+    content: "Go through projects"
+    @media screen and (max-width: $break-mid)
+      content: "Swipe projects"
+  &.nav-helper-open
+    &:after
+      display: none
+      @media screen and (max-width: $break-mid)
+        display: none
 
 .nav-next
   position: absolute
@@ -309,8 +326,10 @@ body
     font-size: $mainFontSizeLarge
   @media screen and (min-width: $break-xlarge)
     font-size: $mainFontSizeLarge
-  margin-left: 80px
-  float: left
+  margin-left: 10px
+  @media screen and (max-width: $break-smallmid)
+    margin-left: 10px
+  float: right
   &:hover
     cursor: pointer
     border-bottom: 2px solid black

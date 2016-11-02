@@ -57,11 +57,11 @@ function swiper_hoverProject(){
 
   $('.swiper-wrapper').mouseenter(function() {
     $('.nav-next').addClass('nav-open')
-    $('.nav-helper').text('Open project').css({'border-bottom':'2px solid black'})
+    $('.nav-helper').addClass('nav-helper-open').text('click to open project').css({'border-bottom':'2px solid black'})
   })
   .mouseleave(function() {
     $('.nav-next').removeClass('nav-open')
-    $('.nav-helper').text(orgText).css({'border-bottom':'0px solid black'})
+    $('.nav-helper').removeClass('nav-helper-open').text(orgText).css({'border-bottom':'0px solid black'})
 
   });
 }
