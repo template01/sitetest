@@ -250,7 +250,7 @@ body
 
   @media screen and (min-width: $break-smallmid)
     height: 56px
-    line-height: calc( 56px - 2px)  
+    line-height: calc( 56px - 2px)
 
   @media screen and (max-width: $break-small) and (max-width: $break-smallmid)
     font-size: $mainFontSizeSmall
@@ -592,7 +592,9 @@ li
     // margin: 56px
     margin-top: 56px
     margin-left: 56px
-
+    @media screen and (max-width: $break-smallmid)
+      margin-top: $offsetsmallmid
+      margin-left: $offsetsmallmid
     // width: calc(60vh - 112px)
     // height: calc(40vh - 112px)
     // width: calc(60vh - 56px)
