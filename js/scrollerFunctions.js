@@ -61,7 +61,6 @@ function scroller_scrollSplashAway() {
               }, 800)
 
               firstTouch = true
-              // alert('first')
             }
         });
 

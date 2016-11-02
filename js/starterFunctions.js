@@ -32,7 +32,12 @@ function starter_studioCamStop(){
   clearTimeout(triggerStudiocam)
 }
 
+// var i = 0
+
 function starter_mainMenuMaker() {
+
+    // alert('menu made'+i)
+    // i=i+1
     $('#partStudio h1').clone().appendTo(".mainMenu").addClass('menuItemHidden').attr('goto','partStudio');
     $('#partProjects h1').clone().appendTo(".mainMenu").addClass('menuItemHidden').attr('goto','partProjects');
     $('#partContact h1').clone().appendTo(".mainMenu").addClass('menuItemHidden').attr('goto','partContact');

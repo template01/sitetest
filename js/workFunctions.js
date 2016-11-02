@@ -132,8 +132,6 @@ function work_unloadWorkEvent() {
         window.location.hash = ''
         if ($('.mainMenu').hasClass('splashAway')) {
           window.scrollTo(0, scrollYPos)
-        }else{
-          scroller_scrollSplashAway()
         }
 
     });

@@ -210,7 +210,7 @@ body
     display: none
   cursor: pointer
   &.swiper-slide-active
-    box-shadow: 1px 0px 0px $mainColor, -2px 0px 0px $mainColor, 0px -2px 0px $mainColor,0px 2px 0px $mainColor
+    // box-shadow: 1px 0px 0px $mainColor, -2px 0px 0px $mainColor, 0px -2px 0px $mainColor,0px 2px 0px $mainColor
 
 .displayNone
   display: none
@@ -422,9 +422,10 @@ body
   -webkit-transition: top 1s
   transition: top 1s
   &.splashAway
-    top: calc(-100% + 56px)
     @media screen and (max-width: $break-smallmid)
       top: calc(-100% + #{$offsetsmallmid})
+    @media screen and (min-width: $break-smallmid)
+      top: calc(-100% + 56px)
     h1
       opacity: 1
 
