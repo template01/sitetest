@@ -82,6 +82,8 @@ function work_loadWork(postName) {
                     resize_positionPostHeaderWrapperNext()
                     $('.workSlide').removeClass('slideInRight')
                     $('.workSlideInner').removeClass('fadeIn')
+
+                    scroller_iosCheck()
                 }, 900)
                 //  });
 
@@ -130,8 +132,6 @@ function work_unloadWorkEvent() {
         window.location.hash = ''
         if ($('.mainMenu').hasClass('splashAway')) {
           window.scrollTo(0, scrollYPos)
-        }else{
-          scroller_scrollSplashAway()
         }
 
     });
